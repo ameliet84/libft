@@ -71,5 +71,7 @@ void ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void ft_lstadd(t_list **alst, t_list *new);
 int ft_tolower(int c);
 char **ft_strsplit(char const *s, char c);
+char *ft_strchr_free(char *s, int c);
+char *ft_strdup_free(char *s);
 
 #endif

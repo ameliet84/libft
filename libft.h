@@ -14,7 +14,7 @@ typedef struct s_list
 
 typedef struct s_list2
 {
-	char *data;
+	char *str;
 	struct s_list2 *next;
 	struct s_list2 *parent;
 	int number;
@@ -79,5 +79,6 @@ void ft_lstadd(t_list **alst, t_list *new);
 int ft_tolower(int c);
 char **ft_strsplit(char const *s, char c);
 char *ft_strjoin_free(char *s1, char *s2, int opt);
-
+char *ft_strchr_free(char *s, int c);
+char *ft_strdup_free(char *s);
 #endif
