@@ -1,34 +1,28 @@
 #include "get_next_line.h"
 
 
-int split_one(char *line, char **str2)
+
+int fill_line(char **line, char **str2, int r)
 {
+	int nb;
 	int i;
 	char **temp;
 
 	temp = str2;
+	nb = 2;
+	while((*str2)[nb-2]!= '\0' && (*str2)[nb-2] != '\n')
+		++nb;
+	if(!(*line = ft_strnew(nb)))
+		return -1;
 	i = -1;
 	while((*str2)[++i]!='\0' && (*str2)[i]!= '\n')
 		line[i] = (*str2)[i];
 	line[i + 1] = '\0';
 	if(*str2[i] == '\n')
 		++i;
-	*str2 = ft_strdup(*str2 + i);
+	if(!(*str2 = ft_strdup(*str2 + i)))
+		return -1;
 	ft_strdel(temp);
-	return 0;
-}
-
-int fill_line(char **line, char **str2, int r)
-{
-	int nb;
-
-		nb = 2;
-		while((*str2)[nb-2]!= '\0' && (*str2)[nb-2] != '\n')
-			++nb;
-		if(!(*line = ft_strnew(nb)))
-			return -1;
-		if(split_one(*line, str2)!= 0)
-			return -1;
 		return 1;
 	return 0;
 }
